@@ -73,7 +73,7 @@ Unless thou take that honour from thy name:
 
 ## Architecture and code
 
-The API is written in Ruby and uses Sinatra to resolve API routes. The poetry data is stored in a MongoDB database. The Ruby code is provided here as Open Source. The PoetryDB database is not directly accessible, in order to preserve its integrity.
+The API is written in Ruby and uses Sinatra to resolve API routes. The poetry data is stored in a MongoDB database. The Ruby code is provided here as Open Source. The PoetryDB database cannot be publicly accessed or written to (in order to preserve its integrity).
 
 ![Architecture Diagram](https://github.com/thundercomb/poetrydb/blob/master/Architecture_Diagram.jpg)
 
@@ -105,7 +105,7 @@ The API is written in Ruby and uses Sinatra to resolve API routes. The poetry da
 
   ```:abs```: Match ```<search term>``` exactly when searching ```<input field>```
 
-or:
+  or:
 
   Default (empty): match ```<search term>``` with any part of ```<input field>``` when searching
 
@@ -118,7 +118,7 @@ or:
   ```linecount```: Return only the number of lines of each of the matching poems
   ```author,title,...```: Return each output field in the comma delimited list of each of the matching poems
 
-or:
+  or:
 
   Default (empty): Return all data of each of the matching poems
   ```all```: Return all data of the matching poems
@@ -128,7 +128,7 @@ or:
   ```.json```: Return data in json format
   ```.text```: Return data in text format
 
-or:
+  or:
 
   Default (empty): Return data in json format
 
@@ -140,6 +140,7 @@ or:
 ```
 /author[/<author>][:abs][/<output field>][,<output field>][..][.<format>]
 ```
+--
 
 Format:
 ```
@@ -166,6 +167,7 @@ Result:
   ]
 }
 ```
+--
 
 Format:
 ```
@@ -206,6 +208,7 @@ Result:
   }
 ]
 ```
+--
 
 Format:
 ```
@@ -223,6 +226,7 @@ Result:
   }
 ]
 ```
+--
 
 Format:
 ```
@@ -240,6 +244,7 @@ Result:
   }
 ]
 ```
+--
 
 Format:
 ```
@@ -259,6 +264,7 @@ Result:
   }
 ]
 ```
+--
 
 Format:
 ```
@@ -284,6 +290,7 @@ linecount
 ```
 /title[/<title>][:abs][/<output field>][,<output field>][..][.<format>]
 ```
+--
 
 Format:
 ```
@@ -310,6 +317,7 @@ Result:
   ]
 }
 ```
+--
 
 Format:
 ```
@@ -345,6 +353,7 @@ Result:
   }
 ]
 ```
+--
 
 Format:
 ```
@@ -374,6 +383,7 @@ Result:
   }
 ]
 ```
+--
 
 Format:
 ```
@@ -391,6 +401,7 @@ Result:
   }
 ]
 ```
+--
 
 Format:
 ```
@@ -410,6 +421,7 @@ Result:
   }
 ]
 ```
+--
 
 Format:
 ```
@@ -446,6 +458,7 @@ The lone and level sands stretch far away".
 ```
 /lines/<lines>[:abs][/<output field>][,<output field>][..][.<format>]
 ```
+--
 
 Format:
 ```
@@ -490,6 +503,7 @@ Result:
   }
 ]
 ```
+--
 
 Format:
 ```
@@ -507,6 +521,7 @@ Result:
   }
 ]
 ```
+--
 
 Format:
 ```
@@ -526,6 +541,7 @@ Result:
   }
 ]
 ```
+--
 
 Format:
 ```
@@ -553,6 +569,7 @@ linecount
 ```
 
 Note: linecount is always exact, and therefore the match type ```:abs``` is not applicable.
+--
 
 Format:
 ```
@@ -597,6 +614,7 @@ Result:
   }
 ]
 ```
+--
 
 Format:
 ```
@@ -620,6 +638,7 @@ Result:
   }
 ]
 ```
+--
 
 Format:
 ```
@@ -644,6 +663,7 @@ Result:
   }
 ]
 ```
+--
 
 Format:
 ```
@@ -691,6 +711,7 @@ William Topaz McGonagall
 Notes: 
 1. The number of input fields should always be matched by the number of search terms
 2. The search terms are separated by the semicolon to allow commas to be used in search terms. However, semicolons are a feature of many texts, and unfortunately cannot be part of the search term currently.
+--
 
 Format:
 ```
@@ -747,6 +768,7 @@ Result:
   }
 ]
 ```
+--
 
 Format:
 ```
@@ -789,6 +811,8 @@ Result:
   }
 ]
 ```
+--
+
 Format:
 ```
 /<input field>,<input field>/<search term>;<search term>/<output field>
@@ -814,6 +838,8 @@ Result:
   }
 ]
 ```
+--
+
 Format:
 ```
 /<input field>,<input field>/<search term>;<search term>/<output field>[.<format>]
